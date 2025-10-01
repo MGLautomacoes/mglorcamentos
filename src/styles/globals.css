@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #000000;
+  --brand-blue: #0018FF;
+  --brand-orange: #FF6A00;
+}
+
+html, body {
+  background: var(--bg);
+  color: #ffffff;
+  min-height: 100%;
+}
+
+.auth-bg {
+  background:
+    radial-gradient(1200px 500px at 85% 35%, rgba(0,24,255,0.18) 0%, rgba(0,24,255,0) 60%),
+    radial-gradient(1200px 500px at 15% 25%, rgba(0,24,255,0.18) 0%, rgba(0,24,255,0) 60%),
+    #000;
+}
+
+.card {
+  @apply w-full rounded-2xl border border-white/15 text-white shadow-glass;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.input {
+  @apply bg-white/10 border border-white/20 text-white rounded-lg px-4 py-3 outline-none
+         placeholder-white/60 transition ring-0 focus:border-white/30 focus:ring-2 focus:ring-white/10;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-3 font-semibold text-white
+         transition disabled:opacity-70 disabled:cursor-not-allowed;
+}
+.btn-primary {
+  @apply bg-gradient-to-r from-[var(--brand-orange)] via-orange-400 to-[var(--brand-orange)] hover:opacity-90;
+}
+.btn-ghost { @apply bg-transparent border border-white/20 hover:border-white/40; }
+
+.link { @apply underline text-white/80 hover:text-white; }
+
+.msg-err { @apply text-sm text-center text-red-400 font-medium; }
+.msg-ok  { @apply text-sm text-center text-emerald-400 font-medium; }
+/* ===== Select: garantir opções legíveis (Windows/Chrome) ===== */
+select.input { appearance: none; }
+select.input::-ms-expand { display: none; } /* IE/Edge legado */
+
+select.input option {
+  color: #000;           /* texto preto na lista suspensa */
+  background: #ffffff;   /* fundo branco na lista suspensa */
+}
